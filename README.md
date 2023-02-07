@@ -1,3 +1,5 @@
 # abductor-virgin-wheel
-Project #2, work in progress. Will start with api and db then move on to front end. Using Spring Boot and MySql. Likely going with an Angular front.
-Plans to include user login and authentication with spring security.
+Learning Vue with this repo.
+Shout out to the creator of The Ultimate Vue 3 Tutorial (100% Composition API) at the Laith Academy.
+Made a counter app with javascript, them recreated the same application with Vue JS.
+The thid part of this project is creating a basic note taking application.
