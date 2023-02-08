@@ -34,7 +34,7 @@
   <main>
     <div v-if="showModal" class="overlay">
       <div class="modal">
-        <textarea v-model="newNote" @keyup.ctrl.enter="addNote" name="note" id="note" cols="30" rows="10"></textarea>
+        <textarea v-model="newNote" @keyup.ctrl.enter.exact="addNote" name="note" id="note" cols="30" rows="10"></textarea>
         <button @click="addNote">Add Note</button>
         <button @click="showModal = false" class="close">Close</button>
       </div>
