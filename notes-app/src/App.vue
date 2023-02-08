@@ -7,9 +7,12 @@
   const newNote = ref("");
   const notes = ref([]);
 
+  // counter for ids
+  let counter = 0;
+
   // JS function to get a random color
   function getRandomColor(){
-    return "hsl(" + Math.random() * 90 + ", 30%, 50%)"
+    return "hsl( 0," +Math.random() * 99 +"%, 50%)"
   }
 
   const addNote= () => {
@@ -20,7 +23,7 @@
     }
     notes.value.push({
       // this is a randomly generated number and would have to be fixed to ids that don't repeat, in the future
-      id: Math.floor(Math.random() * 100000),
+      id: ++counter,
       text: newNote.value,
       date: new Date(),
       backgroundColor: getRandomColor()
