@@ -1,18 +1,45 @@
 <script setup>
   import {ref} from "vue";
+  // import dayjs from "dayjs";
+  // dayjs.extend(relativeTime);
+
   const showModal = ref(false);
   const newNote = ref("");
+  const notes = ref([]);
+
+  // JS function to get a random color
+  function getRandomColor(){
+    return "hsl(" + Math.random() *360 + ", 100%, 75%)"
+  }
+
+  const addNote= () => {
+    // adding validation
+    if(newNote.value.length <= 3 ){
+      alert("You need to have more than 3 characters.");
+      return;
+    }
+    notes.value.push({
+      // this is a randomly generated number and would have to be fixed to ids that don't repeat, in the future
+      id: Math.floor(Math.random() * 100000),
+      text: newNote.value,
+      date: new Date(),
+      backgroundColor: getRandomColor()
+    });
+    showModal.value=false;
+    newNote.value="";
+  }
 </script>
 
 <template>
   <main>
     <div v-if="showModal" class="overlay">
       <div class="modal">
-        <textarea v-model="newNote" name="note" id="note" cols="30" rows="10"></textarea>
-        <button>Add Note</button>
+        <textarea v-model="newNote" @keyup.ctrl.enter="addNote" name="note" id="note" cols="30" rows="10"></textarea>
+        <button @click="addNote">Add Note</button>
         <button @click="showModal = false" class="close">Close</button>
       </div>
     </div>
+    
     <div class="container">
     
       <header>
@@ -21,9 +48,13 @@
       </header>
       
       <div class="cards-container">
-        <div class="card">
-          <p class="main-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-          <p class="date">02/07/2023</p>
+        <div class="card" style="background-color: aquamarine;">
+          <p class="main-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam modi ab recusandae molestias? Earum, quidem?</p>
+          <p class="date">2/8/2023</p>
+        </div>
+        <div v-for="note in notes" :key="note.id" class="card" :style="{backgroundColor: note.backgroundColor}">
+          <p class="main-text">{{ note.text }}</p>
+          <p class="date">{{ note.date.toLocaleDateString("en-US") }} {{ note.date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) }}</p>
         </div>
       </div>
     
@@ -66,7 +97,6 @@
   .card{
     width: 225px;
     height: 225px;
-    background-color: goldenrod;
     padding: 10px;
     border-radius: 15px;
     display: flex;
@@ -74,6 +104,8 @@
     justify-content: space-between;
     margin-right: 20px;
     margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
   }
   .date{
     font-size: 12.5px;
@@ -82,6 +114,7 @@
   .cards-container{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
   }
   .overlay{
     position: absolute;
@@ -115,5 +148,9 @@
   .modal .close{
     background-color: red;
     margin-top: 7px;
+  }
+  .modal textarea{
+    font-size: 15px;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;;
   }
 </style>
