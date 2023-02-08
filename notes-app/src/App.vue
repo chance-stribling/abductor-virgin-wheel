@@ -12,7 +12,7 @@
 
   // JS function to get a random color
   function getRandomColor(){
-    return "hsl( 0," +Math.random() * 99 +"%, 50%)"
+    return "#ff65a3"
   }
 
   const addNote= () => {
@@ -98,6 +98,7 @@
     ); */
     background-color: rgb(230, 83, 78);
     border-radius: 10px;
+    margin-top: 15px;
     
     
   }
@@ -141,7 +142,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    margin-top: 10px;
+    margin-top: 50px;
   }
   .overlay{
     position: absolute;
