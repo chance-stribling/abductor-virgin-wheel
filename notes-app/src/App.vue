@@ -9,7 +9,7 @@
 
   // JS function to get a random color
   function getRandomColor(){
-    return "hsl(" + Math.random() *360 + ", 100%, 75%)"
+    return "hsl(" + Math.random() * 120 + ", 30%, 50%)"
   }
 
   const addNote= () => {
@@ -43,7 +43,7 @@
     <div class="container">
     
       <header>
-        <h1>Notes</h1>
+        <h1>Schticky Notes</h1>
         <button @click="showModal = true">+</button>
       </header>
       
@@ -102,7 +102,7 @@
     font-weight: bold;
     margin-bottom: 25px;
     font-size: 70px;
-    color: whitesmoke;
+    color: white;
     font-style: oblique;
   }
   header button{
@@ -128,7 +128,7 @@
     margin-bottom: 20px;
     font-size: large;
     font-weight: bold;
-    color: whitesmoke;
+    color: rgb(255, 255, 255);
   }
   .date{
     font-size: 12.5px;
@@ -179,7 +179,8 @@
   .modal textarea{
     font-size: 15px;
     font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;;
-    background-color: #282828;
+    background-color: #515151;
     color: whitesmoke;
+    border-color: aquamarine;
   }
 </style>
