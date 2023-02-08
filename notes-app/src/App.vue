@@ -9,7 +9,7 @@
 
   // JS function to get a random color
   function getRandomColor(){
-    return "hsl(" + Math.random() * 120 + ", 30%, 50%)"
+    return "hsl(" + Math.random() * 90 + ", 30%, 50%)"
   }
 
   const addNote= () => {
@@ -164,14 +164,15 @@
     padding: 10px 20px;
     font-size: 20px;
     width: 100%;
-    background-color: aquamarine;
+    background-color: #9a5e3c;
     border: none;
-    color: Black;
+    color: white;
+    font-weight: bolder;
     cursor: pointer;
     margin-top: 15px;
   }
   .modal .close{
-    background-color: red;
+    background-color: #e6534e;
     margin-top: 7px;
     width: 50%;
     align-self: center;
@@ -181,6 +182,6 @@
     font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;;
     background-color: #515151;
     color: whitesmoke;
-    border-color: aquamarine;
+    border-color: #483535;
   }
 </style>
